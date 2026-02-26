@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FarmaciasDirect\Sauron\Traits;
 
+use FarmaciasDirect\Sauron\Enums\TraceLevel;
 use FarmaciasDirect\Sauron\Services\ProcessLogService;
 use Illuminate\Support\Str;
 use Throwable;
@@ -77,6 +78,23 @@ trait LogsToSauron
     }
 
     /**
+     * Registra una traza intermedia dentro del proceso actual.
+     * Solo se envía si el logging está activo (proceso crítico o debug).
+     *
+     * Uso dentro de withSauronLogging:
+     *     $this->sauronTrace('Procesando chunk', ['chunk' => 1, 'total' => 10]);
+     *     $this->sauronTrace('Error parcial', ['ref' => $ref], TraceLevel::WARNING);
+     */
+    protected function sauronTrace(string $message): void
+    {
+        if (! $this->shouldLogToSauron()) {
+            return;
+        }
+
+        ProcessLogService::trace($message);
+    }
+
+    /**
      * Ejecuta el contenido del job con logging automático a Sauron.
      *
      * Uso:
@@ -84,6 +102,7 @@ trait LogsToSauron
      * {
      *     $this->withSauronLogging(function() {
      *         // ... lógica del job ...
+     *         $this->sauronTrace('Paso completado', ['items' => 50]);
      *         return ['items_processed' => 100];
      *     });
      * }

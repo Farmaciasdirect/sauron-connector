@@ -40,6 +40,11 @@ final class SauronClient
         self::safeRequest(fn () => self::client()->post('/api/v1/user-logs', $payload));
     }
 
+    public static function createProcessTrace(string $uuid, array $payload): void
+    {
+        self::safeRequest(fn () => self::client()->post("/api/v1/process-logs/{$uuid}/traces", $payload));
+    }
+
     public static function createRequestLog(array $payload): void
     {
         self::safeRequest(fn () => self::client()->post('/api/v1/request-logs', $payload));

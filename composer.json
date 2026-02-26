@@ -1,5 +1,5 @@
 {
-    "name": "farmaciasdirect/sauron-laravel",
+    "name": "farmaciasdirect/sauron-connector",
     "description": "Laravel SDK for Sauron logging API - process logs, user audit logs, and request logs",
     "type": "library",
     "license": "proprietary",
@@ -9,6 +9,10 @@
             "email": "dev@farmaciasdirect.com"
         }
     ],
+    "homepage": "https://github.com/Farmaciasdirect/sauron-connector",
+    "support": {
+        "source": "https://github.com/Farmaciasdirect/sauron-connector"
+    },
     "require": {
         "php": "^8.2",
         "illuminate/http": "^10.0|^11.0|^12.0",

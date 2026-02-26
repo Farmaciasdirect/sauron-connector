@@ -6,6 +6,7 @@ namespace FarmaciasDirect\Sauron\Services;
 
 use Carbon\Carbon;
 use FarmaciasDirect\Sauron\Enums\ProcessStatus;
+use FarmaciasDirect\Sauron\Enums\TraceLevel;
 use FarmaciasDirect\Sauron\LogContext;
 use FarmaciasDirect\Sauron\SauronClient;
 use Throwable;
@@ -90,6 +91,20 @@ final class ProcessLogService
         }
 
         SauronClient::updateProcessLog(LogContext::uuid(), [
+            'message' => $message,
+        ]);
+    }
+
+    /**
+     * Registra una traza intermedia dentro del proceso actual.
+     */
+    public static function trace(string $message): void
+    {
+        if (! LogContext::uuid()) {
+            return;
+        }
+
+        SauronClient::createProcessTrace(LogContext::uuid(), [
             'message' => $message,
         ]);
     }
