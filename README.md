@@ -3,8 +3,8 @@
 Laravel SDK para integración con la API de Sauron — sistema centralizado de logging para procesos, auditoría de usuarios y trazabilidad de peticiones HTTP.
 
 [![Packagist Version](https://img.shields.io/packagist/v/farmaciasdirect/sauron-connector)](https://packagist.org/packages/farmaciasdirect/sauron-connector)
-[![PHP](https://img.shields.io/badge/PHP-%5E8.2-blue)](https://packagist.org/packages/farmaciasdirect/sauron-connector)
-[![Laravel](https://img.shields.io/badge/Laravel-10%2B-red)](https://packagist.org/packages/farmaciasdirect/sauron-connector)
+[![PHP](https://img.shields.io/badge/PHP-%5E8.1-blue)](https://packagist.org/packages/farmaciasdirect/sauron-connector)
+[![Laravel](https://img.shields.io/badge/Laravel-8%2B-red)](https://packagist.org/packages/farmaciasdirect/sauron-connector)
 
 ## Requisitos
 
